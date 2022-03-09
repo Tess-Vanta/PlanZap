@@ -515,15 +515,14 @@ const Calender = (props) => {
         contentLabel="My dialog"
         style={{
           overlay: {
-            backgroundColor: "rgba(255, 255, 255, 0.75)",
+            backgroundColor: "rgba(0, 0, 0, 0.65)",
           },
           content: {
-            height: "43vh",
+            height: "53vh",
             padding: "0",
-            borderRadius: "10px",
-            backgroundColor: "#222",
-            color: "#fff",
-
+            borderRadius: "5px",
+            backgroundColor: "white",
+            width: "40%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -533,38 +532,26 @@ const Calender = (props) => {
         centered
       >
         <div className="new-task-div">
+          <p>Add a Task</p>
+          <hr />
           <div className="formarea">
-            <label
-              style={{ fontSize: "2.2vh", marginBottom: "0vh" }}
-              htmlFor="taskname"
-            >
-              Task Name
-            </label>
             <input
               type="text"
               id="taskname"
               maxLength="50"
               name="taskname"
-              className="fields"
-              placeholder="Max Characters:32"
+              placeholder="Task name (max character: 32)"
               onChange={(event) => {
                 settask(event.target.value);
               }}
               required
             />
 
-            <label
-              style={{ fontSize: "2.2vh", marginTop: "1vh" }}
-              htmlFor="date"
-            >
-              Deadline
-            </label>
-
             <input
               type="date"
               id="date"
               name="date"
-              className="fields"
+              placeholder="Deadline"
               min={today}
               onChange={(event) => {
                 setdeadline(event.target.value);
@@ -572,35 +559,33 @@ const Calender = (props) => {
               required
             />
 
-            <label style={{ fontSize: "2.2vh" }} htmlFor="priority">
-              Priority
-            </label>
+            <label style={{ fontSize: "2.2vh" }} htmlFor="priority"></label>
             <select
               id="priority"
               name="country"
-              className="fields"
               onChange={(event) => {
                 setpriority(event.target.value);
               }}
               required
             >
-              <option></option>
+              <option value="" selected>
+                Priority
+              </option>
 
               <option value="Highest Priority">Highest Priority</option>
               <option value="Medium Priority">Medium Priority</option>
               <option value="Low Priority">Low Priority</option>
             </select>
-            <input
-              type="submit"
-              value="Submit"
-              className="subbut"
-              style={{ marginTop: "1.5vh", fontSize: "2vh" }}
+            <div
+              className="douter"
               onClick={() => {
                 let a = checktask();
                 console.log(a);
                 a === 1 ? addtask() : alert("please fill all the fields");
               }}
-            />
+            >
+              <span className="dsubmit">ADD</span>
+            </div>
           </div>
         </div>
       </Modal>

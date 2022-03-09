@@ -222,10 +222,19 @@
   background-color: #03a9f4;
 }
 
-.movie-edit {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.movie-edit p {
+  font-size: 1.3rem;
+  font-weight: 100;
+  margin: 0;
+}
+
+.movie-edit hr {
+  border: none;
+  border-bottom: 1px solid rgb(208, 208, 208);
+  height: 1px;
+  width: 113%;
+  left: -2.4rem;
+  position: relative;
 }
 
 .rating-sort-btn {
@@ -235,6 +244,14 @@
   cursor: pointer;
 }
 
+.edit-modal {
+  outline: none;
+  border: none;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  margin-top: 1rem;
+  padding: 0;
+}
 .donkey {
   width: 80%;
   font-family: "Poppins", sans-serif;
@@ -250,7 +267,7 @@
 }
 #mdesc {
   resize: vertical;
-  color: white;
+
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
 }

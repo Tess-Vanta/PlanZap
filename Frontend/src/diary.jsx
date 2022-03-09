@@ -16,10 +16,10 @@ const Diary = () => {
   const [errormessage, seterrormessage] = useState("");
   const [extracteddesc, setextracteddesc] = useState("");
   const [extractdate, setextractdate] = useState(false);
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
 
   const [id, setid] = useState(0);
-  
+
   console.log(setuserid); //This is for removing warning only
   console.log(id); //This is for removing warning only
 
@@ -49,7 +49,6 @@ const Diary = () => {
   
   }, [])*/
   const update = (e) => {
-  
     Axios.put("https://planzap.herokuapp.com/updatediary", {
       userid: userid,
       data_entry: newdesc,
@@ -59,7 +58,6 @@ const Diary = () => {
     });
   };
   const add = (e) => {
-  
     Axios.post("https://planzap.herokuapp.com/insertdiary", {
       userid: userid,
       data_entry: desc,
@@ -112,23 +110,25 @@ const Diary = () => {
         contentLabel="My dialog"
         style={{
           overlay: {
-            backgroundColor: "rgba(255, 255, 255, 0.75)",
+            backgroundColor: "rgba(0, 0, 0, 0.65)",
           },
           content: {
             width: "40vw",
-            height: "50vh",
+            height: "53vh",
             margin: "auto",
             padding: "0",
             borderRadius: "10px",
             display: "flex",
             flexDirection: "column",
-            backgroundImage: "linear-gradient(to top left,grey, teal)",
+
             overflowX: "hidden",
           },
         }}
       >
-        <div style={{ marginTop: "5vh", marginLeft: "2vw" }}>
-          <label  style={{ fontSize: "2.5vh" }}>
+        <div className="add-diary">
+          <p>Diary</p>
+          <hr></hr>
+          <label style={{ fontSize: "2.5vh" }}>
             {format(new Date(date), "PPPP")}
           </label>
           <br />
@@ -151,17 +151,15 @@ const Diary = () => {
             }}
           ></textarea>
           <br />
-          <div className="btn-entry">
-            <button
-              className="add-entry"
-              onClick={() => {
-                entryexists ? update() : add();
-                toggleModal();
-                getentry(date)
-              }}
-            >
-              {entryexists ? "Update" : "Add Entry"}
-            </button>
+          <div
+            className="douter"
+            onClick={() => {
+              entryexists ? update() : add();
+              toggleModal();
+              getentry(date);
+            }}
+          >
+            <span className="dsubmit">{entryexists ? "UPDATE" : "ADD"}</span>
           </div>
         </div>
       </Modal>
@@ -177,7 +175,8 @@ const Diary = () => {
             marginTop: "2vh",
           }}
           onChange={(event) => {
-            setdate(event.target.value); getentry(event.target.value)
+            setdate(event.target.value);
+            getentry(event.target.value);
           }}
         />
       </div>
@@ -197,7 +196,6 @@ const Diary = () => {
           Update / Add
         </button>
         &nbsp;
-        
       </div>
       <br />
       <div

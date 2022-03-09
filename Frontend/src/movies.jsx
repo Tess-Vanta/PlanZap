@@ -131,8 +131,10 @@ const Movies = () => {
         }}
       >
         <div className="movie-edit">
+          <p>Edit Movie</p>
+          <hr />
           <label for="mname">
-            <b>Edit Movie Name</b>
+            <b> Movie Name</b>
           </label>
           <br />
           <input
@@ -141,7 +143,7 @@ const Movies = () => {
             rows="2"
             cols="40"
             maxLength="60"
-            className="donkey"
+            className="edit-modal"
             defaultValue={tempname}
             onChange={(event) => {
               setnewname(event.target.value);
@@ -150,7 +152,7 @@ const Movies = () => {
           <br />
           <br />
           <label for="mdesc">
-            <b>Edit Movie Description</b>
+            <b>Movie Description</b>
           </label>
           <br />
           <textarea
@@ -159,7 +161,7 @@ const Movies = () => {
             rows="2"
             cols="40"
             maxLength="60"
-            className="donkey"
+            className="edit-modal"
             defaultValue={tempdesc}
             onChange={(event) => {
               setnewdesc(event.target.value);
@@ -167,15 +169,15 @@ const Movies = () => {
           ></textarea>
           <br />
           <br />
-          <button
-            className="save-button"
+          <div
+            className="douter"
             onClick={() => {
               updatemovie();
               toggleModal();
             }}
           >
-            Save
-          </button>
+            <span className="dsubmit">Save</span>
+          </div>
         </div>
       </Modal>
 
